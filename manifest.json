@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "GOG Enhancer",
+  "version": "0.1.0",
+  "description": "Enhances the GOG store with additional game information and functionality.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "gog-enhancer@example.com",
+      "strict_min_version": "128.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.gog.com/*"],
+      "js": ["dist/content/gog.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
