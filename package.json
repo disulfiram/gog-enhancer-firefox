@@ -1,14 +1,14 @@
 {
   "name": "gog-enhancer-firefox",
-  "version": "1.0.0",
+  "version": "2026.10.0-alpha.1",
   "description": "A FireFox plugin providing additional functionality in GOG.",
   "main": "index.js",
   "scripts": {
-  "build": "tsc",
-  "clean": "if exist dist rmdir /s /q dist",
-  "lint": "web-ext lint --source-dir .",
-  "dev": "web-ext run --source-dir ."
-},
+    "build": "tsc",
+    "clean": "if exist dist rmdir /s /q dist",
+    "lint": "web-ext lint --source-dir .",
+    "dev": "web-ext run --source-dir ."
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/disulfiram/gog-enhancer-firefox.git"
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/disulfiram/gog-enhancer-firefox#readme",
   "devDependencies": {
+    "@types/firefox-webext-browser": "^143.0.1",
     "typescript": "^7.0.2",
     "web-ext": "^10.6.0"
   }

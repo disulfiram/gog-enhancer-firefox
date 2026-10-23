@@ -203,12 +203,12 @@ npm run lint
 - [x] Set up `web-ext`
 - [x] Load extension in Firefox
 - [x] Detect GOG game pages
-- [ ] Extract stable GOG product ID
-- [ ] Investigate GOG product API
+- [x] Extract stable GOG product ID
+- [x] Investigate GOG product API
 
 ### Phase 1 - Core game model
 
-- [ ] Create GOG game model
+- [x] Create GOG game model
 - [ ] Create storage abstraction
 - [ ] Establish game/service ID mapping
 - [ ] Add basic extension UI
@@ -266,13 +266,11 @@ npm run lint
 ## Design Principles
 
 - **Absolutely no data collection**
-
   - The extension will not collect, sell, transmit, or otherwise monetize user data.
   - User data will remain local to the user's browser whenever practical.
   - The extension will do exactly what it says it does, and nothing more.
 
 - **Security first**
-
   - Avoid introducing unnecessary security risks or vulnerabilities.
   - Minimize permissions requested by the extension.
   - Minimize external communication.
@@ -281,33 +279,32 @@ npm run lint
   - Security and privacy take priority over convenience.
 
 - **Official APIs only**
-
   - External services will be integrated through their official APIs whenever an API is available.
   - API usage must respect the service's documented requirements and limitations.
   - We will not reverse-engineer undocumented APIs merely because they are convenient.
 
 - **Scraping is a last resort**
-
   - Scraping will not be used when an appropriate official API exists.
   - If a non-core feature requires scraping, the feature should preferably be dropped.
   - If scraping is considered sufficiently valuable to keep, it must be optional and **disabled by default**.
   - Scraping should never become a hidden or unavoidable dependency of the core extension.
 
 - Keep the extension lightweight.
-
 - Keep external integrations isolated.
-
 - Don't require a server unless there is a clear need.
-
 - Make new integrations easy to add.
-
 - Make ignore reasons easy to extend.
-
 - Avoid unnecessary dependencies.
-
 - Prefer simple solutions over clever ones.
-
 - Don't block GOG page loading on external services.
+
+## Known Issues
+
+- Some GOG product pages do not expose a usable `Product.sku` in their JSON-LD metadata.
+  - Example: `static_dread_the_submarine_deluxe_edition`
+  - The standard edition exposes a SKU, but the Deluxe Edition currently does not.
+  - Current approach is considered sufficiently reliable for V1.0.
+  - Revisit if additional affected products are discovered.
 
 ## Disclaimer
 
